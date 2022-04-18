@@ -1,3 +1,8 @@
+leftWristX = 0;
+leftWristY = 0;
+rightWristX = 0;
+rightWristY = 0;
+
 song1 = "";
 song2 = "";
 
@@ -12,6 +17,28 @@ function setup(){
 
     video = createCapture(VIDEO);
     video.hide();
+    
+    poseNet = ml5.poseNet(video, modelLoaded);
+    pose.on('pose', gotPoses);
+}
+
+function modelLoaded(){
+    console.log("PoseNet is initialized");
+}
+
+
+function gotPoses(result){
+   if(result.length > 0){
+        console.log(result);
+       
+       leftHandWristX = result[0].pose.leftWrist.x;
+        leftHandWristY = result[0].pose.leftWrist.y;
+        console.log("The left hand wrist's x = " + leftHandWristX + "and the y =" + leftHandWristY);
+
+        rightHandWristX = result[0].pose.rightWrist.x;
+        rightHandWristY = result[0].pose.rightWrist.y;
+        console.log("The right hand wrist's x = " + rightHandWristX + "and the y =" + rightHandWristY);
+   }
 }
 
 function draw(){
