@@ -1,4 +1,6 @@
 scoreLeftWrist = 0;
+song1_status = "";
+song2_status = "";
 
 leftWristX = 0;
 leftWristY = 0;
@@ -33,6 +35,10 @@ function gotPoses(result){
    if(result.length > 0){
         console.log(result);
        
+       scoreLeftWrist = result[0].pose.keypoints[9].score;
+        console.log("score of left wrist = " + scoreLeftWrist);
+
+       
        leftHandWristX = result[0].pose.leftWrist.x;
         leftHandWristY = result[0].pose.leftWrist.y;
         console.log("The left hand wrist's x = " + leftHandWristX + "and the y =" + leftHandWristY);
@@ -45,4 +51,9 @@ function gotPoses(result){
 
 function draw(){
     image(video, 0, 0, 300, 300);
+    
+    fill("red");
+    stroke("red");
+    
+    song1_status = song1.isPlaying();
 }
