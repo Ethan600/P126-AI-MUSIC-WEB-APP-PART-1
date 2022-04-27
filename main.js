@@ -56,4 +56,17 @@ function draw(){
     stroke("red");
     
     song1_status = song1.isPlaying();
+    
+    if(scoreLeftWrist > 0.2){
+        circle(leftHandWristX, leftHandWristY, 20);
+        song2.stop();
+        
+        if(song1_status == false){
+            song1.play();
+                    document.getElementById("song").innerHTML = "Song Played = Alone - Alan Walker";
+        }
+        
+    }
+        
+
 }
