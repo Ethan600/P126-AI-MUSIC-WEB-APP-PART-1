@@ -67,7 +67,7 @@ function draw(){
         
         if(song2_status == false){
             song2.play();
-            document.getElementById("song").innerHTML = "Song Played: Turn Down For What - DJ Snake, Lil Jon
+            document.getElementById("song").innerHTML = "Song Played: Turn Down For What - DJ Snake, Lil Jon";
     
     if(scoreLeftWrist > 0.2){
         circle(leftHandWristX, leftHandWristY, 20);
