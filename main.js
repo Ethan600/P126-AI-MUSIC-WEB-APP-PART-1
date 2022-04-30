@@ -68,11 +68,13 @@ function draw(){
         if(song2_status == false){
             song2.play();
             document.getElementById("song").innerHTML = "Song Played: Turn Down For What - DJ Snake, Lil Jon";
+        }
+    }
     
     if(scoreLeftWrist > 0.2){
         circle(leftHandWristX, leftHandWristY, 20);
         song2.stop();
-        
+     
         if(song1_status == false){
             song1.play();
                     document.getElementById("song").innerHTML = "Song Played: Alone - Alan Walker";
